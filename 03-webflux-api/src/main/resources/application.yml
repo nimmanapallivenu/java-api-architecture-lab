@@ -1,0 +1,61 @@
+# WebFlux Reactive API Configuration
+
+server:
+  port: 8082
+  netty:
+    connection-timeout: 30s
+    idle-timeout: 60s
+
+spring:
+  application:
+    name: webflux-api
+  
+  # R2DBC Configuration (Reactive Database)
+  r2dbc:
+    url: r2dbc:h2:mem:///testdb?options=DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    pool:
+      initial-size: 10
+      max-size: 20
+      max-idle-time: 30m
+      validation-query: SELECT 1
+  
+  # H2 Console (for debugging)
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+# Logging Configuration
+logging:
+  level:
+    root: INFO
+    com.apiarchlab.webflux: DEBUG
+    io.r2dbc: DEBUG
+    org.springframework.data.r2dbc: DEBUG
+    org.springframework.web.reactive: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# Actuator Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    export:
+      simple:
+        enabled: true
+
+# Custom Application Properties
+app:
+  reactive:
+    max-in-memory-size: 10MB
+    backpressure-buffer-size: 256

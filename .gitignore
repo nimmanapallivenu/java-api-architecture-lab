@@ -1,0 +1,73 @@
+# Maven
+target/
+.classpath
+.project
+.settings/
+*.jar
+*.war
+*.ear
+*.rar
+*.zip
+*.tar.gz
+*.rar
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Local properties
+.env
+local.properties
+*.properties.local
+
+# Build output
+out/
+build/
+dist/
+.gradle/
+
+# Log files
+*.log
+logs/
+
+# Java
+*.class
+*.ctxt
+.mtj.tmp/
+*.jar
+*.jar.original
+
+# Misc
+.cache/
+.m2/
+node_modules/
+package-lock.json
+dump.rdb
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+database.mv.db
+database.trace.db
+
+# Generated files
+src/main/java/com/apiarchlab/**/*.java
+!src/main/java/com/apiarchlab/domain/**/*.java
+
